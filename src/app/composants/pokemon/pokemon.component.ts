@@ -12,7 +12,8 @@ export class PokemonComponent {
   @Input() public height : number | string = "";
   @Input() public weight : number | string = "";
   @Input() public category : string[] = [];
-  @Input() public id : number | string  = "";
+  @Input() public id : number = 0;
   @Input() public type : string[]  = [];
 
+  protected readonly parseInt = parseInt;
 }
