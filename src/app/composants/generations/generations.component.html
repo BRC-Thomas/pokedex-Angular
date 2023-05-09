@@ -1,0 +1,10 @@
+<h3 class=" my-4 border-b-2">Génération de Pokémons</h3>
+<ul>
+  <li
+    *ngFor="let chaque_generation of generations"
+    class="p-1 hover:bg-slate-300"
+  >
+    <app-une-generation [leNomDeGeneration]="chaque_generation">
+    </app-une-generation>
+  </li>
+</ul>
