@@ -7,16 +7,18 @@ export class PokemonModels{
   private _type : string[];
   private _height : number | string = "N/A";
   private _weight : number | string  = "N/A";
+  private _image : string;
 
-  constructor(id: number, name: string, category: string[], type: string[], height: number | string, weight: number | string) {
+
+  constructor(id: number, name: string, category: string[], type: string[], height: number | string, weight: number | string, image: string) {
     this._id = id;
     this._name = name;
     this._category = category;
     this._type = type;
     this._height = height;
     this._weight = weight;
+    this._image = image;
   }
-
 
   get id(): number {
     return this._id;
@@ -68,5 +70,12 @@ export class PokemonModels{
 
   set weight(value: number | string) {
     this._weight = value;
+  }
+  get image(): string {
+    return this._image;
+  }
+
+  set image(value: string) {
+    this._image = value;
   }
 }

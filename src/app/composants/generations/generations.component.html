@@ -3,8 +3,7 @@
   <li
     *ngFor="let chaque_generation of generations"
     class="p-1 hover:bg-slate-300"
-  >
-    <app-une-generation [leNomDeGeneration]="chaque_generation">
-    </app-une-generation>
+  >{{ chaque_generation}}
+
   </li>
 </ul>

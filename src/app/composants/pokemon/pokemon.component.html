@@ -1,6 +1,6 @@
 <div class="">
-  <div class=" bg-gradient-to-l from-blue-800 to-pink-700 h-56 rounded-lg">
-    <img class="object-contain h-[100%] w-[100%]"  src="https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png" alt="" >
+  <div class=" bg-gradient-to-l from-blue-800 to-pink-700 h-56 rounded-t-lg">
+    <img class="object-contain h-[100%] w-[100%]" [src]="image" alt="pokeball" >
   </div>
   <div class="p-4">
     <p>ID: <span>{{ id < 10 ? '00' + id : id }}</span></p>
@@ -9,6 +9,7 @@
     <p>Taille: <span>{{height}} m</span></p>
     <p>Poids: <span>{{weight}} kg</span></p>
     <p>Type: <span>{{type}}</span></p>
+
     <p class="my-2 text-xl text-center font-bold">{{name}}</p>
   </div>
 </div>

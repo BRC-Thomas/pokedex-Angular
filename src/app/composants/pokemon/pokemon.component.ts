@@ -14,6 +14,6 @@ export class PokemonComponent {
   @Input() public category : string[] = [];
   @Input() public id : number = 0;
   @Input() public type : string[]  = [];
+  @Input() public image : string  = "";
 
-  protected readonly parseInt = parseInt;
 }
