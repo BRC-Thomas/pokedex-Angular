@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {PokemonModels} from "../../models/PokemonModels";
+import {Observable} from "rxjs";
+import {ResponsePokemons} from "../../models/ResponsePokemons";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-pokemons',
@@ -7,17 +10,16 @@ import {PokemonModels} from "../../models/PokemonModels";
   styleUrls: ['./pokemons.component.scss']
 })
 
-export class PokemonsComponent {
-  public pokemonArray : PokemonModels[] = [];
+export class PokemonsComponent implements OnInit{
 
-  constructor() {
-    this.pokemonArray.push(new PokemonModels(1,"Bulbizarre",["graine"] , ["plante", "poison"], 70, 6.9,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
-    this.pokemonArray.push(new PokemonModels(2,"Herbizarre",["graine"], ["plante", "poison"], 100, 13,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
-    this.pokemonArray.push(new PokemonModels(3, "Florizarre",["graine"],["plante", "poison"], 200, 100,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
+  public pokemonArray$! : Observable<ResponsePokemons>;
 
-    this.pokemonArray.push(new PokemonModels(4,"Salamèche", ["flamme"],["feu"] , 60, 8.5,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
-    this.pokemonArray.push(new PokemonModels(5,"Reptincel", ["flamme"],["feu"] , 110, 19,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
-    this.pokemonArray.push(new PokemonModels(6,"Dracaufeu", ["flamme"], ["feu"], 170, 90.5,"https://www.freepnglogos.com/uploads/pokeball-png/pokeball-alexa-style-blog-pokemon-inspired-charmander-daily-8.png"));
+  constructor(
+    @Inject(HttpClient) private http : HttpClient
+  ) {
   }
 
+  public  ngOnInit():void {
+    this.pokemonArray$ = this.http.get<ResponsePokemons>('https://pokeapi.co/api/v2/pokemon/');
+  }
 }

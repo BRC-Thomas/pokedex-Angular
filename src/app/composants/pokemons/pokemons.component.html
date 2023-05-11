@@ -1,16 +1,13 @@
 <h3 class="mb-2 text-center text-4xl mb-12 mt-5 ">Les six premiers Pokémons</h3>
 
-<div class="card-container container mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-  <div class="max-w-[80%] min-w-[60%] mx-auto shadow-md rounded-md  sm:min-w-[300px]"
-    *ngFor="let pokemon of pokemonArray">
-    <app-pokemon
-      [name]="pokemon.name"
-      [height]="pokemon.height"
-      [weight]="pokemon.weight"
-      [category]="pokemon.category"
-      [id]="pokemon.id"
-      [type]="pokemon.type"
-      [image]="pokemon.image"
-    />
+<div
+  class="card-container container mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
+  *ngIf="pokemonArray$ | async as resultatApi">
+  <div
+    class="max-w-[80%] min-w-[60%] mx-auto shadow-md rounded-md  sm:min-w-[300px]"
+    *ngFor="let pokemon of resultatApi.results">
+
+    <app-pokemon [pokemon]="pokemon"/>
   </div>
+
 </div>

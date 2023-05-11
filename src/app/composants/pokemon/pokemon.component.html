@@ -1,16 +1,30 @@
-<div class="">
-  <div class=" bg-gradient-to-l from-blue-800 to-pink-700 h-56 rounded-t-lg">
-    <img class="object-contain h-[100%] w-[100%]" [src]="image" alt="pokeball" >
+<div *ngIf="data$ | async as monPokemon">
+  <div
+    class=" bg-gradient-to-l from-blue-800 to-pink-700 h-56 rounded-t-lg"
+  >
+    <img
+      [src]="monPokemon.sprites.other.front_shiny"
+      [alt]="monPokemon.name"
+      class="object-contain h-[100%] w-[100%]"
+    >
   </div>
   <div class="p-4">
-    <p>ID: <span>{{ id < 10 ? '00' + id : id }}</span></p>
 
-    <p>Catégorie: <span>{{category}}</span></p>
-    <p>Taille: <span>{{height}} m</span></p>
-    <p>Poids: <span>{{weight}} kg</span></p>
-    <p>Type: <span>{{type}}</span></p>
 
-    <p class="my-2 text-xl text-center font-bold">{{name}}</p>
+      <p>ID: <span>{{monPokemon.order | number : '3.0-0' }}</span></p>
+
+
+      <p>Taille: <span>{{monPokemon.height | number : '1.0-2'}} m</span></p>
+      <p>Poids: <span>{{monPokemon.weight | number : '1.0-2'}} kg</span></p>
+      <p>Type: <span>{{monPokemon.type}}</span></p>
+<!--
+    <ul>Catégorie:
+      <li *ngFor="let categorie of category">{{monPokemon}}</li>
+    </ul>
+-->
+     <p class="my-2 text-xl text-center font-bold">{{monPokemon.name}}</p>
   </div>
+
+
 </div>
 

@@ -2,20 +2,16 @@ import {Typpes} from "./Typpes";
 import {OfficialArtwork} from "./Official-artwork";
 import {sprites} from "./sprites";
 
-export interface PokemonModels{
+export interface PokemonDetails{
 
   order : number; // id
   name : string;
   weight : number;
   height : number;
   type : Typpes[];
-  image : sprites;
+  sprites : sprites;
+
 
   //category : string[];
-
-
-
-
-
 
 }
