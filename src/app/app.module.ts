@@ -6,6 +6,8 @@ import { GenerationsComponent } from './composants/generations/generations.compo
 import { PokemonsComponent } from './composants/pokemons/pokemons.component';
 import { PokemonComponent } from './composants/pokemon/pokemon.component';
 import {HttpClientModule} from "@angular/common/http";
+import { NavbarComponent } from './composants/navbar/navbar.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import {HttpClientModule} from "@angular/common/http";
     GenerationsComponent,
     PokemonsComponent,
     PokemonComponent,
+    NavbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+      AppRoutingModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
